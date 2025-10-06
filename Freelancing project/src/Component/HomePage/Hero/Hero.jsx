@@ -6,7 +6,7 @@ import "./Hero.css";
 export default function Hero() {
   return (
     <section className="container py-5 hero-section" dir="rtl">
-      <div className="row align-items-center g-4">
+      <div className="row align-items-center g-5">
         {/* Left: images */}
         <div className="col-12 col-lg-6">
           <div className="position-relative hero-images">
@@ -20,7 +20,7 @@ export default function Hero() {
               alt="صورة 2"
               className="shadow-lg rounded position-absolute hero-img-2"
             />
-            <div className="bg-primary position-absolute rounded-4 hero-decor" />
+            
           </div>
         </div>
 
@@ -34,10 +34,10 @@ export default function Hero() {
             سهلة وسريعة، مع شحن موثوق وخيارات دفع متعددة.
           </p>
           <div className="d-flex justify-content-end gap-2">
-            <a href="#products" className="btn bg-dark text-white px-4">
+            <a href="#products" className="btn bg-dark text-white px-5 ">
               تسوّق الآن
             </a>
-            <a href="#about" className="btn btn-outline-secondary px-4">
+            <a href="#about" className="btn btn-outline-secondary px-5 ">
               اعرف أكثر
             </a>
           </div>
