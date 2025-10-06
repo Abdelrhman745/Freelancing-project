@@ -1,0 +1,27 @@
+.productCard {
+  position: relative;
+}
+
+.cartIcon {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.4s ease;
+}
+
+.productCard:hover .cartIcon {
+  opacity: 1;
+  transform: translateX(0) scale(1.2);
+}
+
+.test{
+  background-color: red;
+}
+/* .show-details {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+.product-card:hover .show-details {
+  opacity: 1;
+  transform: translateY(0);
+} */
