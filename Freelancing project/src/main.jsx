@@ -9,17 +9,14 @@ import "@fontsource/tajawal";
 import "./index.css"
 
 import Layout from "./Layout/Layout.jsx";
+import Home from "./Component/HomePage/Home.jsx";
 
 const Routs = createBrowserRouter([
   {
     path:"",
     element: <Layout />,
     children: [
-      // {path:"home" ,element:<Home/>},
-      // {path:"allproducts" ,element:<Allproducts/>},
-      
-      { path: "welcome", element: <h1>Welcome</h1> },
-      { path: "boda", element: <h1>bodaaa</h1> },
+      { index: true, element: <Home /> },
     ],
   },
 ]);
