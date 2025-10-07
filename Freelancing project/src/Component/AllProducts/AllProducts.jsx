@@ -103,7 +103,9 @@ export default function AllProducts() {
       <div className="row g-4 justify-content-center">
         {filteredData.length > 0 ? (
           filteredData.map((item, i) => (
-            <ProductCard key={i} product={item} />
+                <div className="col-12 col-md-4 col-lg-3">
+                         <ProductCard key={i} product={item} />
+                         </div>
           ))
         ) : (
           <p className="text-center text-muted">لا توجد منتجات مطابقة للبحث.</p>

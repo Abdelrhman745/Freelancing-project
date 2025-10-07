@@ -7,6 +7,7 @@ import ProductCard from "../ProductCard/ProductCard";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { WidthFull } from "@mui/icons-material";
 
 export default function ProductDetails() {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export default function ProductDetails() {
   }, [category]);
 
   function goBack() {
-    navigate("/home");
+    navigate("/");
   }
 
   if (!product)
@@ -80,35 +81,37 @@ export default function ProductDetails() {
           <p>{product.description}</p>
 
           <div className="d-flex justify-content-between align-items-center my-4">
-            <h3 className="text-success fw-bold">{product.price} $</h3>
+            <h3 className="text-success fw-bold">{product.price} جنيها</h3>
             <p>
-              <i className="fa-solid fa-star text-warning"></i>{" "}
-              {product.ratingsAverage}
-              <span> ({product.ratingsQuantity} reviews)</span>
+              <span><i class="fa-solid fa-star-half text-warning"></i></span>
+                 {[...Array(4)].map((_, i) => (
+                   <i key={i} className="fa-solid fa-star text-warning"></i>
+                 ))} 
             </p>
           </div>
 
           <button
-            className="btn btn-dark fs-5 p-2 mt-2 w-100"
+            className="btn btn-dark fs-5 p-2 mt-5 w-100"
             onClick={goBack}
           >
-            Back
+            الرجوع للصفحه الرئيسية
           </button>
         </div>
       </div>
 
       {/* منتجات ذات صلة */}
-      <div className="row mt-5">
-        <h3 className="mb-4 fw-bold text-center">منتجات ذات صلة</h3>
+      <div className="row mt-5 flex-column align-items-center">
+      <h3 className="fw-bold text-center border-bottom border-3 p-2" style={{width:"20%"}}>منتجات ذات صلة</h3>
 
         {related.length > 1 ? (
           <Slider {...settings} className="text-center related-slider" dir="rtl">
+            
   {related
     ?.filter((prod) => prod.id !== product.id)
     .map((prod) => (
-      <div key={prod.id} className="p-2">
-        <ProductCard product={prod} />
-      </div>
+    
+        <ProductCard product={prod}  />
+    
     ))}
 </Slider>
 
