@@ -17,7 +17,7 @@ function handleAddToWishlist(){
   return (
     <>
      
-       <div className='col-10 col-lg-3 col-md-4 mb-5 gy-3 position-relative ' style={{height:450}}>
+      <div className="position-relative mb-4" style={{ height: 450, width: "100%" }}>
         <div className={`card p-4 border-0 rounded rounded-4 ${Style.productCard}`}  >
           <img src={image} className="card-img-top  ms-xl-3  p-3" alt="..." style={{height:300,width:"100%"}}/>
           <div className="card-body">

@@ -1,6 +1,6 @@
 import React from "react";
-import img1 from "../../../assets/photos/1.jpg";
-import img2 from "../../../assets/photos/2.jpg";
+import img1 from "/photos/1.jpg";
+import img2 from "/photos/2.jpg";
 import "./Hero.css";
 import { NavLink } from "react-router-dom";
 

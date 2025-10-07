@@ -12,6 +12,7 @@ import Layout from "./Layout/Layout.jsx";
 import Home from "./Component/HomePage/Home.jsx";
 import AllProducts from "./Component/AllProducts/AllProducts.jsx";
 import ContactUs from "./Component/HomePage/ContactUs/ContactUs.jsx";
+import ProductDetails from "./Component/ProductDetails/ProductDetails.jsx";
 
 
 
@@ -22,6 +23,7 @@ const Routs = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {path:"all" , element:<AllProducts /> },
+      {path:"product/:id/:category" , element:<ProductDetails />},
       {path:"contact" , element:<ContactUs />}
     ],
   },

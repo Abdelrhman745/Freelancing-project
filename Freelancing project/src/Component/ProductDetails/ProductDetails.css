@@ -1,0 +1,34 @@
+.prodImg:hover{
+  box-shadow: rgb(227, 227, 227) 5px 5px 10px , rgb(227, 227, 227) -5px -5px 10px !important;
+  transform: scale(1.1);
+  transition: all 1s ;
+}
+
+.prodImg{
+  width: 400px !important;
+  height: 450px !important;
+  object-fit: cover !important;
+}
+
+
+.related-slider .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.related-slider .slick-track {
+  display: flex !important;
+  gap: 10px;
+}
+
+.related-slider .slick-prev:before,
+.related-slider .slick-next:before {
+  color: #000; /* لون السهم */
+  font-size: 25px;
+}
+
+.related-slider {
+  margin: 0 auto;
+  max-width: 95%;
+}
