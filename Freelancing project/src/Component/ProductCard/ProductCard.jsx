@@ -27,7 +27,7 @@ function handleAddToWishlist(){
               <p><span className='fs-5'><i className="fa-solid fa-star text-warning"></i></span></p>
             </div >
             <Link to={`/product/${id}/${category}`} className="btn btn-sm text-white w-100 p-0 " style={{backgroundColor:"#212529"}}>
-            <h5 className='mt-2'>تفاصيل المنتج</h5>
+            <h6 className='mt-2'>تفاصيل المنتج</h6>
           </Link>
             <Badge className={`position-absolute top-0 end-0 ${Style.cartIcon}`} ><IconButton className="btn btn-dark fs-5 p-2 mt-2 w-100 " onClick={handleAddToWishlist} ><FavoriteIcon sx={{color:"red"}}/></IconButton></Badge>
           </div>
