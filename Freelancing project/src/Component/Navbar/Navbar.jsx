@@ -52,7 +52,7 @@ export default function Navbar() {
 
               <li className="nav-item">
                 <NavLink
-                  to="/allproducts"
+                  to="/all"
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
                   }
