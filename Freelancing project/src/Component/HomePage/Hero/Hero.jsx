@@ -2,6 +2,7 @@ import React from "react";
 import img1 from "../../../assets/photos/1.jpg";
 import img2 from "../../../assets/photos/2.jpg";
 import "./Hero.css";
+import { NavLink } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -34,9 +35,12 @@ export default function Hero() {
             سهلة وسريعة، مع شحن موثوق وخيارات دفع متعددة.
           </p>
           <div className="d-flex justify-content-end gap-2">
-            <a href="#products" className="btn bg-dark text-white px-5 ">
-              تسوّق الآن
-            </a>
+            <NavLink
+                  to="/all"
+                  className="btn bg-dark text-white px-5"
+                >
+              تسوّق الآن          
+              </NavLink>
             <a href="#about" className="btn btn-outline-secondary px-5 ">
               اعرف أكثر
             </a>
