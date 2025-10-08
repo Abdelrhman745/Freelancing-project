@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Component/Navbar/Navbar";
 import Footer from "../Component/Footer/Footer";
-import ContactUs from "../Component/HomePage/ContactUs/ContactUs";
+
 
 export default function Layout() {
   return (
@@ -14,7 +14,7 @@ export default function Layout() {
       <main className="flex-fill py-4">
         <Outlet />
       </main>
-      <ContactUs />
+      
     <Footer />
     </div>
   );

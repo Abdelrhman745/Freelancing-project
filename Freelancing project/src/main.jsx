@@ -10,6 +10,8 @@ import "./index.css"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Layout from "./Layout/Layout.jsx";
 import Home from "./Component/HomePage/Home.jsx";
+import AllProducts from "./Component/AllProducts/AllProducts.jsx";
+import ContactUs from "./Component/HomePage/ContactUs/ContactUs.jsx";
 
 
 
@@ -19,6 +21,8 @@ const Routs = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      {path:"all" , element:<AllProducts /> },
+      {path:"contact" , element:<ContactUs />}
     ],
   },
 ]);
