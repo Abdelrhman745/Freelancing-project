@@ -76,7 +76,7 @@ export default function Navbar() {
  
               <li className="nav-item">
                 <NavLink
-                  to="/admin"
+                  to="/dashboard"
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
                   }
