@@ -31,12 +31,11 @@ export default function Dashboard() {
 
   // 🧮 واجهة الإحصائيات
   const renderStats = () => (
-    <div className="row mb-4">
+    <div className="row justify-content-center mb-4">
       {[
         { label: 'إجمالي المنتجات', value: mockStats.totalProducts },
-        { label: 'إجمالي الطلبات', value: mockStats.totalOrders },
-        { label: 'إجمالي الإيرادات', value: `${mockStats.totalRevenue.toLocaleString()} ج.م` },
-        { label: 'العملاء', value: mockStats.totalCustomers },
+       
+      
       ].map((item, i) => (
         <div className="col-md-3" key={i}>
           <div className="card text-center">
