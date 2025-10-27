@@ -219,15 +219,15 @@ export default function Dashboard() {
         <div className="modal show d-block" tabIndex="-1">
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
-              <div className="modal-header">
+              <div className="modal-header d-flex justify-content-between border border-2">
                 <h5 className="modal-title">
                   {editingProduct ? 'تعديل المنتج' : 'إضافة منتج جديد'}
                 </h5>
                 <button
                   type="button"
-                  className="btn-close"
+                  className="btn "
                   onClick={() => setShowModal(false)}
-                ></button>
+                ><i class="fa-solid fa-xmark"></i></button>
               </div>
               <div className="modal-body">
                 <div className="mb-3">

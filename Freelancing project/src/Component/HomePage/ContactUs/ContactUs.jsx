@@ -27,7 +27,7 @@ const ContactUs = () => {
 
         <div className="mb-4">
           <p>
-            <strong>الإيميل:</strong> ahmed.aziz4465@gmail.com
+            <strong>الإيميل:</strong> mohamed.reda4465@gmail.com
           </p>
           <p>
             <strong>رقم التليفون:</strong> 01114184854

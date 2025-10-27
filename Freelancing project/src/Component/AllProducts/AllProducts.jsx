@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductCard from "../ProductCard/ProductCard"; 
+import ProductCard from "../ProductCard/ProductCard";
 
 export default function AllProducts() {
   const [data, setData] = useState([]);
@@ -8,6 +8,10 @@ export default function AllProducts() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [priceRange, setPriceRange] = useState("All");
+
+  // 🧭 pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8; // عدد المنتجات في الصفحة الواحدة
 
   useEffect(() => {
     axios
@@ -21,7 +25,6 @@ export default function AllProducts() {
       });
   }, []);
 
- 
   useEffect(() => {
     let result = data;
 
@@ -31,12 +34,10 @@ export default function AllProducts() {
       );
     }
 
-  
     if (category !== "All") {
       result = result.filter((item) => item.category === category);
     }
 
-   
     if (priceRange !== "All") {
       result = result.filter((item) => {
         const price = item.price;
@@ -48,10 +49,23 @@ export default function AllProducts() {
     }
 
     setFilteredData(result);
+    setCurrentPage(1); // عند تغيير الفلترة، نرجع للصفحة الأولى
   }, [search, category, priceRange, data]);
 
- 
   const categories = ["All", ...new Set(data.map((item) => item.category))];
+
+  // 🧮 حساب البيانات المعروضة في الصفحة الحالية
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // 🔢 حساب عدد الصفحات
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // لما نبدل الصفحة، يطلع لأعلى الصفحة
+  };
 
   return (
     <div className="container my-5" dir="rtl">
@@ -59,6 +73,7 @@ export default function AllProducts() {
         كل المنتجات
       </h1>
 
+    
       <div className="row mb-4 justify-content-center">
         <div className="col-md-4 mb-2">
           <input
@@ -70,7 +85,6 @@ export default function AllProducts() {
           />
         </div>
 
-      
         <div className="col-md-3 mb-2">
           <select
             className="form-select"
@@ -85,7 +99,6 @@ export default function AllProducts() {
           </select>
         </div>
 
-      
         <div className="col-md-3 mb-2">
           <select
             className="form-select"
@@ -100,17 +113,65 @@ export default function AllProducts() {
         </div>
       </div>
 
+      {/* 🛍️ عرض المنتجات */}
       <div className="row g-4 justify-content-center">
-        {filteredData.length > 0 ? (
-          filteredData.map((item, i) => (
-                <div className="col-12 col-md-4 col-lg-3">
-                         <ProductCard key={i} product={item} />
-                         </div>
+        {currentItems.length > 0 ? (
+          currentItems.map((item, i) => (
+            <div key={i} className="col-12 col-md-4 col-lg-3">
+              <ProductCard product={item} />
+            </div>
           ))
         ) : (
-          <p className="text-center text-muted">لا توجد منتجات مطابقة للبحث.</p>
+          <p className="text-center text-muted">
+            لا توجد منتجات مطابقة للبحث.
+          </p>
         )}
       </div>
+
+      {/* 🔄 أزرار التنقل بين الصفحات */}
+      {totalPages > 1 && (
+        <nav className="mt-4 d-flex justify-content-center">
+          <ul className="pagination">
+            <li className={`page-item ${currentPage === 1 && "disabled"}`}>
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage - 1)}
+              >
+                السابق
+              </button>
+            </li>
+
+            {Array.from({ length: totalPages }, (_, i) => (
+              <li
+                key={i}
+                className={`page-item ${
+                  currentPage === i + 1 ? "active" : ""
+                }`}
+              >
+                <button
+                  className="page-link"
+                  onClick={() => handlePageChange(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              </li>
+            ))}
+
+            <li
+              className={`page-item ${
+                currentPage === totalPages && "disabled"
+              }`}
+            >
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(currentPage + 1)}
+              >
+                التالي
+              </button>
+            </li>
+          </ul>
+        </nav>
+      )}
     </div>
   );
 }
