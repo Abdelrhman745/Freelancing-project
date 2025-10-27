@@ -30,14 +30,11 @@ export default function Navbar() {
             <span className="navbar-toggler-icon" />
           </button>
 
-
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navbarNav"
           >
             <ul className="navbar-nav mb-2 mb-lg-0">
-
-
               <li className="nav-item">
                 <NavLink
                   to="/"
@@ -61,7 +58,6 @@ export default function Navbar() {
                 </NavLink>
               </li>
 
-   
               <li className="nav-item">
                 <NavLink
                   to="/contact"
@@ -73,10 +69,9 @@ export default function Navbar() {
                 </NavLink>
               </li>
 
- 
               <li className="nav-item">
                 <NavLink
-                  to="/dashboard"
+                  to="/login"
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
                   }

@@ -14,7 +14,7 @@ import AllProducts from "./Component/AllProducts/AllProducts.jsx";
 import ContactUs from "./Component/HomePage/ContactUs/ContactUs.jsx";
 import Dashboard from "./Component/Dashboard/Dashboard.jsx";
 import ProductDetails from "./Component/ProductDetails/ProductDetails.jsx";
-
+import Login from "./Component/Login/Login.jsx";
 
 
 const Routs = createBrowserRouter([
@@ -26,7 +26,7 @@ const Routs = createBrowserRouter([
       {path:"all" , element:<AllProducts /> },
       {path:"contact" , element:<ContactUs />},
       {path:"Dashboard" , element:<Dashboard />},
-
+      { path: "login", element: <Login /> },
       {path:"product/:id/:category" , element:<ProductDetails />},
       {path:"contact" , element:<ContactUs />}
     ],
